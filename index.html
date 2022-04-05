@@ -1,326 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #000;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #000;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #000;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #000;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #ca9;
+        border-radius: 5px;
+        text-decoration: none;
+        color: black;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #ca9;
-  border-radius: 5px;
-  text-decoration: none;
-  color: black;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>Home Remodeling: What You Need to Know? | Ruggieri & Co.</title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item"><a href="https://ruggieriandco.com/">Main</a></li>
+        <li class="nav-item">
+          <a href="https://g.page/Danville-Remodeling?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a href="https://sites.google.com/view/homeremodelingdanville/"
+            >Ruggieri & Co.</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>Home Remodeling: What You Need to Know?</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/VtFl3L6qvm8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <a
+            class="button-link"
+            href="https://ruggieriandco.com/home-remodeling-what-you-need-to-know/"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            Whether you are considering remodeling your home for the first time
+            or are a seasoned pro, there are some key things you need to know
+            before starting any home remodeling project. Here at Ruggieri & Co.
+          </p>
+          <p>
+            One of the most important things to consider when remodeling your
+            home is your budget. It’s essential to think about what you want to
+            change and how much those changes will cost. Don’t forget to factor
+            in the cost of materials, labor, and permits. Know what to look for
+            and get the most value for your remodeling dollar if required.
+          </p>
+          <p>
+            Since we’ve been helping homeowners in the Danville area get the
+            most out of their remodeling projects. We have a team of experienced
+            professionals who can help you plan your project, select the
+            suitable materials and finishes, and see it through to completion.
+            Ruggieri & Co is your one-stop-shop for all your home remodeling
+            needs! We have been serving the Danville community since 1959, and
+            we are dedicated to providing our clients with quality artistry and
+            superior customer service.
+          </p>
+          <p>
+            Are you looking for a reliable and experienced home remodeling
+            company in Danville? Look no further than Ruggieri & Co! We
+            specialize in all aspects of home remodeling, from kitchen and
+            bathroom renovations to whole-home makeovers. Our team of skilled
+            professionals will work with you every step of the way to ensure
+            your project exceeds your expectations.
+          </p>
+          <a class="button-link" href="https://ruggieriandco.com/">Visit Us</a>
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>Home Remodeling: What You Need to Know? | Ruggieri & Co.</title>
-</head>
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipOyTpoKiSdMCasCuf-2NM9gNDRbexxcOkONBjHp=h400-no"
+              alt="Home Remodeling Danville, CA"
+            />
+          </div>
+          <br />
+          <h2 style="text-align: center">
+            Trusted Home Remodeling Professionals.
+          </h2>
+          <hr />
+          <br />
+          <p>
+            We can handle any home remodeling project, big or small. If you are
+            considering remodeling your home, please give us a call. We would be
+            happy to discuss your options and provide you with a free,
+            no-obligation quote. We know that you will be impressed with our
+            artistry and the quality of our products.
+          </p>
+          <p>
+            Are you looking for the best home remodeling company in Danville?
+            Look no further than Ruggieri & Co. We have years of experience in
+            the industry, and we always put our clients first. We can help you
+            with everything from kitchen remodeling to
+            <a
+              href="https://ruggieriandco.com/services/bathroom-remodeling-danville/"
+              >bathroom remodeling</a
+            >, and we always stay within your budget.
+          </p>
+          <p>
+            Are you looking for a reliable and professional home remodeling
+            company in Danville? Look no further than Ruggieri & Co! We offer a
+            wide range of remodeling services, from bathroom and kitchen
+            remodeling to flooring and roofing installation, so that we can meet
+            your every need. Plus, our team of experienced and skilled
+            contractors will work with you every step of the way to ensure your
+            complete satisfaction.
+          </p>
+        </section>
 
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://ruggieriandco.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/Danville-Remodeling?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/homeremodelingdanville/">Ruggieri & Co.</a></li>
-    </ul>
-  </nav>
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipN75UDM-IEGWsC6YmrviKU6Q-KbtvswiVRDTVZV=h400-no"
+              alt="Home Remodeling Danville, CA"
+            />
+          </div>
+          <br />
+          <h2 style="text-align: center">
+            What remodeling projects will increase the value of your home the
+            most?
+          </h2>
+          <hr />
+          <br />
+          <p>
+            When it comes to remodeling your home, a few key projects will give
+            you the most significant return on investment. If you’re looking to
+            increase the value of your home, consider these three remodeling
+            projects:
+          </p>
+          <br />
+          <ul style="padding-left: 50px">
+            <li>Kitchen Remodel</li>
+            <br />
+            <p>
+              The kitchen is one of the essential rooms in a home, and a kitchen
+              can be one of the most expensive projects. However, it’s also one
+              of the most effective when it comes to increasing your home’s
+              value. A kitchen can give you a return on investment of up to 80%,
+              so it’s worth considering if you’re looking to sell your home
+              shortly.
+            </p>
+            <br />
+            <li>Bathroom Remodel</li>
+            <br />
+            <p>
+              A bathroom remodels another excellent way to increase your home’s
+              value. It can be expensive as a kitchen remodel, but it can also
+              give you a return on investment of up to 80%. So if you’re looking
+              to sell your home in the next few years, a bathroom remodel is a
+              project you don’t want to overlook.
+            </p>
+            <br />
+            <li>Home Addition</li>
+            <br />
+            <p>
+              A home addition is another great way to add value to your home.
+              Whether you add on to your home or build an entirely new one, an
+              addition can give you a significant return on investment. A home
+              addition can give you a return on investment of up to 100%. So if
+              you’re looking for a way to add value to your home, home addition
+              is the way to go.
+            </p>
+            <p>
+              If you’re thinking about remodeling your home, be sure to consider
+              these three projects. They’ll give you the most significant return
+              on investment, and they’ll also increase the value of your home.
+              So if you’re thinking about selling shortly, these are the
+              projects you should focus on.
+            </p>
+          </ul>
+        </section>
 
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>Home Remodeling: What You Need to Know?</h1>
-      </section>
-
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/VtFl3L6qvm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <a class="button-link"
-            href="https://ruggieriandco.com/home-remodeling-what-you-need-to-know/">Read Post</a>
-      </section>
-
-      <section>
-          <p>Whether you are considering remodeling your home for the first time or are a seasoned pro, there are some key things you need to know before starting any home remodeling project. Here at Ruggieri & Co.</p>
-          <p>One of the most important things to consider when remodeling your home is your budget. It’s essential to think about what you want to change and how much those changes will cost. Don’t forget to factor in the cost of materials, labor, and permits. Know what to look for and get the most value for your remodeling dollar if required.</p>
-          <p>Since we’ve been helping homeowners in the Danville area get the most out of their remodeling projects. We have a team of experienced professionals who can help you plan your project, select the suitable materials and finishes, and see it through to completion. Ruggieri & Co is your one-stop-shop for all your home remodeling needs! We have been serving the Danville community since 1959, and we are dedicated to providing our clients with quality artistry and superior customer service.</p>
-          <p>Are you looking for a reliable and experienced home remodeling company in Danville? Look no further than Ruggieri & Co! We specialize in all aspects of home remodeling, from kitchen and bathroom renovations to whole-home makeovers. Our team of skilled professionals will work with you every step of the way to ensure your project exceeds your expectations.</p>
-          <a class="button-link"
-                href="https://ruggieriandco.com/">Visit Us</a>
-      </section>
-
-      <section>
-
-        <div style="display:flex; justify-content:center">
-            <img src="https://lh3.googleusercontent.com/geougc/AF1QipOyTpoKiSdMCasCuf-2NM9gNDRbexxcOkONBjHp=h400-no" alt="Home Remodeling Danville, CA">
-        </div>
-        <br>
-        <h2 style="text-align:center">Trusted Home Remodeling Professionals.</h2>
-        <hr>
-        <br>
-        <p>We can handle any home remodeling project, big or small. If you are considering remodeling your home, please give us a call. We would be happy to discuss your options and provide you with a free, no-obligation quote. We know that you will be impressed with our artistry and the quality of our products.</p>
-        <p>Are you looking for the best home remodeling company in Danville? Look no further than Ruggieri & Co. We have years of experience in the industry, and we always put our clients first. We can help you with everything from kitchen remodeling to <a href="https://ruggieriandco.com/services/bathroom-remodeling-danville/">bathroom remodeling</a>, and we always stay within your budget.</p>
-        <p>Are you looking for a reliable and professional home remodeling company in Danville? Look no further than Ruggieri & Co! We offer a wide range of remodeling services, from bathroom and kitchen remodeling to flooring and roofing installation, so that we can meet your every need. Plus, our team of experienced and skilled contractors will work with you every step of the way to ensure your complete satisfaction.</p>
-      </section>
-
-      <section>
-
-        <div style="display:flex; justify-content:center">
-            <img src="https://lh3.googleusercontent.com/geougc/AF1QipN75UDM-IEGWsC6YmrviKU6Q-KbtvswiVRDTVZV=h400-no" alt="Home Remodeling Danville, CA">
-        </div>
-        <br>
-        <h2 style="text-align: center">What remodeling projects will increase the value of your home the most?</h2>
-        <hr>
-        <br>
-        <p>When it comes to remodeling your home, a few key projects will give you the most significant return on investment. If you’re looking to increase the value of your home, consider these three remodeling projects:</p>
-        <br>
-        <ul style="padding-left: 50px;">
-            <li>Kitchen Remodel</li><br>
-            <p>The kitchen is one of the essential rooms in a home, and a kitchen can be one of the most expensive projects. However, it’s also one of the most effective when it comes to increasing your home’s value. A kitchen can give you a return on investment of up to 80%, so it’s worth considering if you’re looking to sell your home shortly.</p><br>
-            <li>Bathroom Remodel</li><br>
-            <p>A bathroom remodels another excellent way to increase your home’s value. It can be expensive as a kitchen remodel, but it can also give you a return on investment of up to 80%. So if you’re looking to sell your home in the next few years, a bathroom remodel is a project you don’t want to overlook.</p><br>
-            <li>Home Addition</li><br>
-            <p>A home addition is another great way to add value to your home. Whether you add on to your home or build an entirely new one, an addition can give you a significant return on investment. A home addition can give you a return on investment of up to 100%. So if you’re looking for a way to add value to your home, home addition is the way to go.</p>
-            <p>If you’re thinking about remodeling your home, be sure to consider these three projects. They’ll give you the most significant return on investment, and they’ll also increase the value of your home. So if you’re thinking about selling shortly, these are the projects you should focus on.</p>
-        </ul>
-      </section>
-
-      <section>
+        <section>
           <h2>How to budget for a remodeling project?</h2>
-          <p>When budgeting for a remodeling project, it is essential to factor in all associated costs. This includes the cost of materials, the cost of labor, and any permits or fees that may be required. It is also essential to consider how long the project will take to complete and your daily living expenses during that time. If you are working with a contractor, be sure to get quotes for both the labor and materials costs. It is also essential to have a written contract that outlines the work, the materials used, and the payment schedule.</p>
-          <p>Ruggieri &amp; Co is a professional home remodeling company serving the Danville area for many years. We offer a wide range of services, from bathroom and kitchen remodeling to entire home renovations. Our team of experienced professionals will work with you to create the perfect solution for your home remodeling needs. Are you looking for a professional home remodeling company in Danville? Look no further than Ruggieri &amp; Co! We specialize in home remodeling projects of all sizes, and we’re dedicated to providing our clients with quality artistry and customer service.</p>
-          <p>If you’re looking for quality home remodeling services in the Danville area, Ruggieri &amp; Co is a perfect choice. We offer a wide range of services, from kitchen and bathroom remodeling to home additions and more. Our team of experienced professionals will work with you to create a custom solution that meets your needs and budget.</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=13280063033335453340">Find Us Here!</a>
-      </section>
+          <p>
+            When budgeting for a remodeling project, it is essential to factor
+            in all associated costs. This includes the cost of materials, the
+            cost of labor, and any permits or fees that may be required. It is
+            also essential to consider how long the project will take to
+            complete and your daily living expenses during that time. If you are
+            working with a contractor, be sure to get quotes for both the labor
+            and materials costs. It is also essential to have a written contract
+            that outlines the work, the materials used, and the payment
+            schedule.
+          </p>
+          <p>
+            Ruggieri &amp; Co is a professional home remodeling company serving
+            the Danville area for many years. We offer a wide range of services,
+            from bathroom and kitchen remodeling to entire home renovations. Our
+            team of experienced professionals will work with you to create the
+            perfect solution for your home remodeling needs. Are you looking for
+            a professional home remodeling company in Danville? Look no further
+            than Ruggieri &amp; Co! We specialize in home remodeling projects of
+            all sizes, and we’re dedicated to providing our clients with quality
+            artistry and customer service.
+          </p>
+          <p>
+            If you’re looking for quality home remodeling services in the
+            Danville area, Ruggieri &amp; Co is a perfect choice. We offer a
+            wide range of services, from kitchen and bathroom remodeling to home
+            additions and more. Our team of experienced professionals will work
+            with you to create a custom solution that meets your needs and
+            budget.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=13280063033335453340"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.566343483239!2d-122.00268108468086!3d37.82362537975059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb84c42f7d0c1969c!2sRuggieri%20%26%20Co%20Home%20Remodeling%20Danville!5e0!3m2!1sen!2sph!4v1649127382229!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Home%20Remodeling%20Danville,%20CA</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.566343483239!2d-122.00268108468086!3d37.82362537975059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb84c42f7d0c1969c!2sRuggieri%20%26%20Co%20Home%20Remodeling%20Danville!5e0!3m2!1sen!2sph!4v1649127382229!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Home%20Remodeling%20Danville,%20CA</iframe
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Things to do in Danville, CA</h2>
-          <iframe src="https://www.tripadvisor.com/Attractions-g60802-Activities-Danville_Tri_Valley_California.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.tripadvisor.com/Attractions-g60802-Activities-Danville_Tri_Valley_California.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
           <h2>Danville, CA News</h2>
-          <iframe src="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjfyKSM9_v2AhUVF2AKHV21Cb4YABAAGgJ0bQ&ae=2&ohost=www.google.com&cid=CAESbOD2w3SMAO4qMk_IzPlFzbjoo5_gKQEmKcnWy4fiPpW7O01M1SlxGEAp6VH4ApliOJrpkYpm7lic0h670SCmwclBj0rH52EwOValrD1kcEHDgD_I2qRdSsTkNipth3mTaGsjSDVF2sI9ORWwtg&sig=AOD64_2dUZxo7Oj7TrLnf6LjjqzMOvdIag&q&adurl&ved=2ahUKEwiVoJ2M9_v2AhWKvpQKHSuZBpsQ0Qx6BAgCEAE" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjfyKSM9_v2AhUVF2AKHV21Cb4YABAAGgJ0bQ&ae=2&ohost=www.google.com&cid=CAESbOD2w3SMAO4qMk_IzPlFzbjoo5_gKQEmKcnWy4fiPpW7O01M1SlxGEAp6VH4ApliOJrpkYpm7lic0h670SCmwclBj0rH52EwOValrD1kcEHDgD_I2qRdSsTkNipth3mTaGsjSDVF2sI9ORWwtg&sig=AOD64_2dUZxo7Oj7TrLnf6LjjqzMOvdIag&q&adurl&ved=2ahUKEwiVoJ2M9_v2AhWKvpQKHSuZBpsQ0Qx6BAgCEAE"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://ruggieriandco.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://ruggieriandco.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/ruggieriandco-03-22/"
+            >https://rank-fortress-digital-agency.github.io/ruggieriandco-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://ruggieriandco-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://ruggieriandco-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://guileless-manatee-77455f.netlify.app/"
+            >https://guileless-manatee-77455f.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/homeremodelingdanville/"
+            >https://sites.google.com/view/homeremodelingdanville/</a
+          ><br />
+        </section>
+      </div>
 
-          <a target="_bLank" href="https://rank-fortress-digital-agency.github.io/ruggieriandco-03-22/">https://rank-fortress-digital-agency.github.io/ruggieriandco-03-22/</a><br>
-          <a target="_bLank" href="http://ruggieriandco-03-22.s3-website-ap-southeast-1.amazonaws.com/">http://ruggieriandco-03-22.s3-website-ap-southeast-1.amazonaws.com/</a><br>
-          <a target="_bLank" href="https://guileless-manatee-77455f.netlify.app/">https://guileless-manatee-77455f.netlify.app/</a><br>
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/ruggieriandcompany">Facebook</a>
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=13280063033335453340"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UC4h6_nEY2N5OZ-cqmrfVseg"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li>
+              <a href="https://sites.google.com/view/homeremodelingdanville/"
+                >Google Site</a
+              >
+            </li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
 
-      </section>
-
-     
-
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://ruggieriandco.com/">Main</a></li>
+            <li><a href="https://g.page/Danville-Remodeling?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/ruggieriandcompany">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=13280063033335453340">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UC4h6_nEY2N5OZ-cqmrfVseg">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="https://sites.google.com/view/homeremodelingdanville/">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://ruggieriandco.com/">Main</a></li>
-          <li><a href="https://g.page/Danville-Remodeling?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
